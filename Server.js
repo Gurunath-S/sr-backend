@@ -17,8 +17,8 @@ const customerOrderRoutes = require("./Routes/customerOrder.routes");
 const masterTouchRoutes = require("./Routes/mastertouch.routes");
 const weightRoute=require('./Routes/weight.routes')
 
-const path = require("path");
-const buildPath = path.join(__dirname, "../client/dist");
+// const path = require("path");
+// const buildPath = path.join(__dirname, "../client/dist");
 // console.log(buildPath)
 require("dotenv").config();
 
@@ -27,7 +27,7 @@ var morgan = require("morgan");
 const PORT = process.env.PORT || 5002;
 app.use(morgan("dev"));
 app.use(cors());
-app.use(express.static(buildPath));
+// app.use(express.static(buildPath));
 app.use(bodyParser.json());
 // app.get("/", (req, res) => {
 //   res.send("Server is running");
@@ -48,13 +48,13 @@ app.use("/api/entries", entryRoutes);
 app.use("/api/customerOrder", customerOrderRoutes);
 app.use("/api/master-touch", masterTouchRoutes);
 app.use("/api/weightRoute",weightRoute)
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-console.log('build',buildPath,path.join(buildPath, "index.html"))
+// console.log('build',buildPath,path.join(buildPath, "index.html"))
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(buildPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(buildPath, "index.html"));
+// });
 // app.get("/(.*)", (req, res) => {
 //   res.sendFile(path.join(buildPath, "index.html"));
 // });
